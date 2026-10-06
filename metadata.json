@@ -1,0 +1,6 @@
+{
+  "name": "Bako Cars",
+  "description": "Premium luxury and high-performance car dealership containing curated selections of Mercedes-Benz, fine Toyotas, and other prestige brands.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

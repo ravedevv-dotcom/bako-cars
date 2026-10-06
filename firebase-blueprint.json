@@ -1,0 +1,45 @@
+{
+  "firestore": {
+    "collections": {
+      "vehicles": {
+        "description": "Showroom vehicles and live-synced Instagram car listings",
+        "fields": {
+          "id": { "type": "string", "description": "Unique vehicle ID or IG media ID" },
+          "make": { "type": "string", "description": "Vehicle make/brand" },
+          "model": { "type": "string", "description": "Vehicle model" },
+          "year": { "type": "number", "description": "Model year" },
+          "price": { "type": "number", "description": "Price in NGN (converted if needed)" },
+          "mileage": { "type": "string", "description": "Mileage string" },
+          "fuel": { "type": "string", "description": "Fuel type" },
+          "transmission": { "type": "string", "description": "Transmission type" },
+          "bodyType": { "type": "string", "description": "Body type (SUV, Sedan, etc)" },
+          "color": { "type": "string", "description": "Exterior color" },
+          "interiorColor": { "type": "string", "description": "Interior color" },
+          "engine": { "type": "string", "description": "Engine specs" },
+          "horsepower": { "type": "number", "description": "Horsepower" },
+          "features": { "type": "array", "description": "List of key features" },
+          "images": { "type": "array", "description": "Image URLs" },
+          "videoReel": { "type": "string", "description": "Video reel URL if available" },
+          "featured": { "type": "boolean", "description": "Whether featured in hero/popular" },
+          "description": { "type": "string", "description": "Listing description or IG caption" },
+          "condition": { "type": "string", "description": "New, Foreign Used, etc." },
+          "instagramPostUrl": { "type": "string", "description": "Original IG post link" },
+          "instagramMediaId": { "type": "string", "description": "Instagram media identifier" },
+          "syncedAt": { "type": "string", "description": "ISO timestamp of sync" },
+          "source": { "type": "string", "description": "instagram or showroom_seed" }
+        },
+        "indexes": []
+      },
+      "sync_logs": {
+        "description": "Logs of Instagram webhook and sync events",
+        "fields": {
+          "timestamp": { "type": "string", "description": "Timestamp of event" },
+          "status": { "type": "string", "description": "success or error" },
+          "message": { "type": "string", "description": "Log details" },
+          "mediaCount": { "type": "number", "description": "Number of media items processed" }
+        },
+        "indexes": []
+      }
+    }
+  }
+}
