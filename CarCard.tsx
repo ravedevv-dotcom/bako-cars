@@ -137,8 +137,9 @@ export default function CarCard({
             <>
               {/* Main Car Photo */}
               <img
-                src={getImageUrl(car.images[currentImgIdx] || car.images[0], 600)}
+                src={getImageUrl(car.images[currentImgIdx] || car.images[0], 480)}
                 alt={`${car.make} ${car.model}`}
+                loading="lazy"
                 decoding="async"
                 className="relative z-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-300"
                 referrerPolicy="no-referrer"
