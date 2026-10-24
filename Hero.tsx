@@ -4,7 +4,7 @@
  */
 
 import React, { useRef, useEffect } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Play } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface HeroProps {
@@ -12,7 +12,10 @@ interface HeroProps {
   onContactClick: () => void;
 }
 
-export default function Hero({ onExploreClick, onContactClick }: HeroProps) {
+export default function Hero({
+  onExploreClick,
+  onContactClick,
+}: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -115,12 +118,12 @@ export default function Hero({ onExploreClick, onContactClick }: HeroProps) {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.6 }}
-              className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto"
+              className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xl mx-auto"
             >
               {/* Button A: Solid dark action with borders */}
               <button
                 onClick={onExploreClick}
-                className="w-full sm:w-auto bg-black/80 hover:bg-black border border-white/25 hover:border-sky-400 text-white font-sans font-extrabold text-[11px] sm:text-[12px] tracking-[0.25em] uppercase px-8 py-3.5 hover:text-sky-400 transition-all duration-300 rounded-none flex items-center justify-center space-x-2 group cursor-pointer"
+                className="w-full sm:w-auto bg-black/80 hover:bg-black border border-white/25 hover:border-sky-400 text-white font-sans font-extrabold text-[11px] sm:text-[12px] tracking-[0.25em] uppercase px-7 py-3.5 hover:text-sky-400 transition-all duration-300 rounded-none flex items-center justify-center space-x-2 group cursor-pointer"
               >
                 <span>BROWSE INVENTORY</span>
                 <ChevronRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform text-white/60 group-hover:text-sky-400" />
@@ -129,11 +132,13 @@ export default function Hero({ onExploreClick, onContactClick }: HeroProps) {
               {/* Button B: Distinct luxury high-contrast white button */}
               <button
                 onClick={onContactClick}
-                className="w-full sm:w-auto bg-white hover:bg-neutral-200 text-black font-sans font-extrabold text-[11px] sm:text-[12px] tracking-[0.25em] uppercase px-8 py-3.5 transition-all duration-300 rounded-none flex items-center justify-center space-x-2 group cursor-pointer"
+                className="w-full sm:w-auto bg-white hover:bg-neutral-200 text-black font-sans font-extrabold text-[11px] sm:text-[12px] tracking-[0.25em] uppercase px-7 py-3.5 transition-all duration-300 rounded-none flex items-center justify-center space-x-2 group cursor-pointer"
               >
                 <span>SELL YOUR VEHICLE</span>
                 <ChevronRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
               </button>
+
+
             </motion.div>
 
           </div>

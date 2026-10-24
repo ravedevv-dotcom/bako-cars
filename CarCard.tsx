@@ -14,6 +14,7 @@ import {
   Loader2,
   Car as CarIcon,
   Camera,
+  Play,
 } from 'lucide-react';
 import { Car, getImageUrl, handleImageFallback } from './types';
 import { downloadAllVehicleImages } from './imageDownloader';
@@ -117,7 +118,7 @@ export default function CarCard({
   return (
     <div
       onClick={() => onViewDetails(car)}
-      className="group bg-[#0A0A0A] border border-neutral-800/80 hover:border-neutral-500 rounded-lg overflow-hidden transition-all duration-300 flex flex-col justify-between h-full hover:shadow-2xl hover:shadow-black/80 cursor-pointer text-white"
+      className="group bg-[#0A0A0A] border border-neutral-800/80 hover:border-neutral-500 rounded-lg overflow-hidden transition-all duration-300 flex flex-col justify-between h-full hover:shadow-2xl hover:shadow-sky-500/10 hover:-translate-y-1 cursor-pointer text-white"
       id={`car-card-${car.id}`}
     >
       <div>
@@ -141,7 +142,7 @@ export default function CarCard({
                 alt={`${car.make} ${car.model}`}
                 loading="lazy"
                 decoding="async"
-                className="relative z-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-300"
+                className="relative z-0 w-full h-full object-cover object-center group-hover:scale-[1.04] transition-transform duration-500"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
                   handleImageFallback(e, car.images[currentImgIdx] || car.images[0]);
@@ -153,6 +154,8 @@ export default function CarCard({
                 <span className="px-2 py-0.5 bg-black/80 backdrop-blur-sm text-white font-mono text-[9px] font-bold uppercase rounded border border-white/10">
                   PHOTO {currentImgIdx + 1}/{imagesCount}
                 </span>
+
+
               </div>
 
               {/* Carousel Navigation Arrows */}

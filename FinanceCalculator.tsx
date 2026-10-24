@@ -5,7 +5,15 @@
 
 import { useState } from 'react';
 import { Landmark, ArrowRight, ShieldAlert, BadgeDollarSign, Sparkles } from 'lucide-react';
-import { FINANCING_INTELLIGENCE } from './data';
+
+export const FINANCING_INTELLIGENCE = {
+  tiers: [
+    { name: 'Excellent (740+)', rate: 6.9 },
+    { name: 'Good (680-739)', rate: 8.4 },
+    { name: 'Fair (620-679)', rate: 11.2 },
+    { name: 'Rebuilding (<620)', rate: 14.9 },
+  ],
+};
 
 export default function FinanceCalculator() {
   const [vehiclePrice, setVehiclePrice] = useState(85000);

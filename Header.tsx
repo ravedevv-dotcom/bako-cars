@@ -65,17 +65,17 @@ export default function Header({
             </button>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-12 lg:space-x-16 text-[11px] uppercase tracking-[0.3em] font-medium ml-auto mr-12 lg:mr-20" id="desktop-nav">
+            <nav className="hidden md:flex items-center space-x-8 lg:space-x-12 text-[11px] uppercase tracking-[0.25em] font-medium ml-auto mr-8 lg:mr-16" id="desktop-nav">
               {navItems.map((item) => (
                 <button
                    key={item.id}
                    onClick={() => onNavClick(item.id)}
-                   className={`transition-all duration-300 py-1.5 cursor-pointer hover:text-white ${
+                   className={`transition-all duration-300 py-1.5 cursor-pointer hover:text-white flex items-center space-x-1.5 ${
                      activeSection === item.id ? 'text-white border-b border-white font-bold' : 'text-white/50'
                    }`}
                    id={`nav-link-${item.id}`}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
                 </button>
               ))}
             </nav>

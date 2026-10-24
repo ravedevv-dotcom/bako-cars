@@ -103,7 +103,7 @@ export default function NewInventory({ onViewDetails, onGetApproved, onOpenPrice
           {NEW_ARRIVALS.map((car) => (
             <div
               key={car.id}
-              className="shrink-0 w-[290px] sm:w-[325px] snap-start bg-[#090909] border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col justify-between group"
+              className="shrink-0 w-[290px] sm:w-[325px] snap-start bg-[#090909] border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 hover:shadow-2xl hover:shadow-sky-500/10"
             >
               {/* 1. Image block with Watermark */}
               <div 

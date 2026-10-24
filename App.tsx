@@ -23,7 +23,6 @@ import ContactSection from './ContactSection';
 import InstagramSection from './InstagramSection';
 import NewInventory from './NewInventory';
 import BrandMarquee from './BrandMarquee';
-import GleVideoShowcase from './GleVideoShowcase';
 import AboutServicesMiniSection from './AboutServicesMiniSection';
 import WhyChoose from './WhyChoose';
 import FaqSection from './FaqSection';
@@ -56,8 +55,11 @@ export default function App() {
   const [selectedUploadCarId, setSelectedUploadCarId] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window.location.search.includes('admin=photos') || window.location.search.includes('upload=photos'))) {
-      setShowPhotoManager(true);
+    if (typeof window !== 'undefined') {
+      const search = window.location.search;
+      if (search.includes('admin=photos') || search.includes('upload=photos')) {
+        setShowPhotoManager(true);
+      }
     }
   }, []);
 
@@ -94,7 +96,7 @@ export default function App() {
   // UI state managers
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [modalInquiryType, setModalInquiryType] = useState<'Inquiry' | 'Test Drive' | 'Finance Quote' | 'Trade-In'>('Inquiry');
-  const [currentPage, setCurrentPage] = useState('hero'); // 'hero' | 'inventory' | 'favourites' | 'concierge' | 'contact'
+  const [currentPage, setCurrentPage] = useState<'hero' | 'inventory' | 'favourites' | 'concierge' | 'contact'>('hero');
   const [allInquiries, setAllInquiries] = useState<Inquiry[]>([]);
 
   // Favourites & Price Alert Engine States
@@ -153,7 +155,19 @@ export default function App() {
 
   // Nav page changer
   const handleNavClick = (sectionId: string) => {
-    const targetPage = sectionId === 'calculator' ? 'inventory' : sectionId;
+    const validPages: ('hero' | 'inventory' | 'favourites' | 'concierge' | 'contact')[] = [
+      'hero',
+      'inventory',
+      'favourites',
+      'concierge',
+      'contact',
+    ];
+    let targetPage: 'hero' | 'inventory' | 'favourites' | 'concierge' | 'contact' = 'hero';
+    if (sectionId === 'calculator' || sectionId === 'trade-in') {
+      targetPage = 'inventory';
+    } else if (validPages.includes(sectionId as any)) {
+      targetPage = sectionId as any;
+    }
     setCurrentPage(targetPage);
     window.scrollTo({
       top: 0,
@@ -357,14 +371,7 @@ export default function App() {
                 onOpenPriceAlert={(c) => setPriceAlertCar(c)}
               />
 
-              {/* GLE 53 AMG Showcase Video Section */}
-              <GleVideoShowcase
-                gleVehicle={vehicles.find((v) => v.id === 'mercedes-gle53-2022')}
-                onViewSpecs={() => {
-                  const gle = vehicles.find((v) => v.id === 'mercedes-gle53-2022');
-                  if (gle) handleViewCarDetails(gle, 'Inquiry');
-                }}
-              />
+
 
               <WhyChoose />
               <FaqSection />

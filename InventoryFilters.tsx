@@ -82,8 +82,8 @@ export default function InventoryFilters({
 
   return (
     <div className="glass shadow-2xl rounded-none p-5 sm:p-6 mb-10 glow border border-white/10" id="inventory-filters-container">
-      {/* Universal Search Form */}
-      <form onSubmit={handleSearchSubmit} className="space-y-4">
+      {/* Universal Search Form - Sticky when scrolling down */}
+      <form onSubmit={handleSearchSubmit} className="sticky top-20 z-30 bg-black/95 backdrop-blur-md py-4 px-3 -mx-3 sm:-mx-6 sm:px-6 border-b border-white/10 shadow-2xl space-y-4 transition-all">
         <div className="flex flex-col sm:flex-row items-stretch gap-3">
           <div className="relative flex-1">
             <label htmlFor="inventory-search-input" className="sr-only">Search Showroom Fleet</label>
